@@ -1,0 +1,28 @@
+version: '3'
+services:
+  web:
+    image: my_project_image
+    ports:
+      - "8000:8000"
+  airflow:
+    image: puckel/docker-airflow
+    environment:
+      - LOAD_EX=n
+      - EXECUTOR=Local
+    volumes:
+      - ./dags:/usr/local/airflow/dags
+      - ./logs:/usr/local/airflow/logs
+      - ./plugins:/usr/local/airflow/plugins
+    ports:
+      - "8080:8080"
+    command: webserver
+  scheduler:
+    image: puckel/docker-airflow
+    environment:
+      - LOAD_EX=n
+      - EXECUTOR=Local
+    volumes:
+      - ./dags:/usr/local/airflow/dags
+      - ./logs:/usr/local/airflow/logs
+      - ./plugins:/usr/local/airflow/plugins
+    command: scheduler
