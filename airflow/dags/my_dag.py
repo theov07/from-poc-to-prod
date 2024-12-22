@@ -67,7 +67,7 @@ with DAG('my_dag', default_args=default_args, schedule_interval=timedelta(days=1
         task_id='make_predictions',
         python_callable=make_predictions,
         op_kwargs={'artefacts_url': 'train/data/artefacts',
-                   'text': 'example text',
+                   'text': 'jaime bien apprendre le python',
                    'top_k': 5},
         provide_context=True,
     )
