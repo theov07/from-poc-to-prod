@@ -19,8 +19,7 @@ host = "127.0.0.1"
 class PredictionRequest(BaseModel):
     text: str
     top_k: int
-    date_artefacts_url: str
-
+    date_artefacts_url: str  # 2024-12-11-17-02-59 FOR TESTING
 
 
 
